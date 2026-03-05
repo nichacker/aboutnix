@@ -58,33 +58,33 @@
             background: var(--dark-bg);
             color: var(--text-primary);
             line-height: 1.8;
-            position: relative; /* Fix for language button positioning */
+            position: relative;
             min-height: 100vh;
         }
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
-            padding-top: 6rem; /* Make space for language button */
+            padding-top: 6rem; /* Space for language button */
         }
-        /* FIX: Language button position (better for all screen sizes) */
+        /* Fixed Language Button Style */
         .lang-switch {
-            position: fixed; /* Stay visible when scrolling */
+            position: fixed;
             top: 20px;
             right: 20px;
             z-index: 999; /* Always on top */
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--primary);
             color: var(--text-primary);
             padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
         .lang-switch:hover {
             background: var(--primary);
-            border-color: var(--primary);
             color: white;
         }
         header {
@@ -99,7 +99,7 @@
             text-align: center;
         }
         .avatar {
-            width: 180px; /* Slightly bigger for better visibility */
+            width: 180px;
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
@@ -229,12 +229,12 @@
             font-size: 1rem;
             padding-bottom: 2rem;
         }
-        /* Language switch styles */
+        /* Language Toggle Logic */
         [lang="en"] .cn-only,
         [lang="zh-CN"] .en-only {
             display: none !important;
         }
-        /* Mobile responsiveness */
+        /* Mobile Responsiveness */
         @media (max-width:768px) {
             .container {
                 padding: 2rem 1rem;
@@ -263,8 +263,10 @@
         }
     </style>
 </head>
+<!-- Force initial language to Chinese -->
 <body lang="zh-CN">
 <div class="container">
+    <!-- HARDCODE initial button text to "English" -->
     <button class="lang-switch" id="langBtn">English</button>
 
     <header>
@@ -400,14 +402,21 @@
 </div>
 
 <script>
+    // Initialize button and language state
     const langBtn = document.getElementById('langBtn');
     const body = document.body;
 
+    // Force button text to "English" on page load (override cache)
+    langBtn.textContent = "English";
+    
+    // Add click handler (English → Chinese → English)
     langBtn.addEventListener('click', () => {
         if (body.lang === 'zh-CN') {
+            // Switch to English
             body.lang = 'en';
             langBtn.textContent = '中文';
         } else {
+            // Switch back to Chinese
             body.lang = 'zh-CN';
             langBtn.textContent = 'English';
         }
