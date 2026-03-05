@@ -26,6 +26,15 @@
         "https://github.com/nichacker",
         "https://nichacker.github.io/aboutnix/",
         "https://www.linkedin.com/in/%E5%AD%90%E6%BB%94-%E7%8E%8B-5196b8395"
+      ],
+      "knowsAbout": [
+        "网络安全",
+        "嵌入式Linux",
+        "OpenWrt/iStoreOS",
+        "Docker容器化",
+        "网络性能优化",
+        "智能出行技术",
+        "小鹏G6车机系统"
       ]
     }
     </script>
@@ -66,12 +75,31 @@
             margin-bottom: 3rem;
             text-align: center;
         }
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .lang-switch:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
         .avatar {
             width: 140px;
             height: 140px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--primary);
+            display: block;
+            margin: 0 auto;
         }
         .header-content h1 {
             font-size: 2.8rem;
@@ -159,89 +187,146 @@
             color: var(--text-secondary);
             margin-top: 2rem;
         }
+        /* 语言切换相关样式 - 默认显示中文 */
+        [lang="en"] .cn-only,
+        [lang="zh-CN"] .en-only {
+            display: none !important;
+        }
         @media (max-width:768px) {
             .header-content h1 { font-size:2rem; }
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
-<body>
+<!-- 核心调整：body默认lang为zh-CN，确保默认显示中文 -->
+<body lang="zh-CN">
 <div class="container">
+    <!-- 按钮默认显示English，点击切换为中文 -->
+    <button class="lang-switch" id="langBtn">English</button>
 <header>
-    <img src="https://i.imgur.com/XM4fZ1y.png" alt="Nicholas 个人头像" class="avatar">
+    <img src="https://raw.githubusercontent.com/nichacker/aboutnix/main/me.png" alt="Nicholas 个人头像" class="avatar">
     <div class="header-content">
         <h1>NICHOLAS</h1>
         <p class="alias">风弟者-蒽随小小幼风🐾 | <span class="highlight-text">Blackhat 第一名得主</span></p>
-        <p class="tagline">在 Dignity for children 工作 7 年以上 | 前网络安全工程师 | 6 岁进入信息技术领域</p>
+        <p class="tagline cn-only">在 Dignity for children 工作 7 年以上 | 前网络安全工程师 | 6 岁进入信息技术领域</p>
+        <p class="tagline en-only">7+ Years at Dignity for children | Ex-Network Security Engineer | IT since Age 6</p>
     </div>
 </header>
 
 <section class="section">
-    <h2 class="section-title">关于我 / About Me</h2>
+    <h2 class="section-title cn-only">关于我 / About Me</h2>
+    <h2 class="section-title en-only">About Me / 关于我</h2>
     <div class="card">
-        <h3>English</h3>
-        <p>I am NICHOLAS. I have been working at Dignity for children for more than 7 years. Before I came to Dignity for children, I was a network security engineer.</p>
-        <br>
-        <p>In order to make a future development, I started to enter the field of Information Technology at the age of 6 and won many big prizes, including <span class="highlight-text">Blackhat competition first prize</span>.</p>
-        <br>
-        <h3>中文</h3>
-        <p>我是 NICHOLAS。我在 Dignity for children 工作了 7 年多。在加入 Dignity for children 之前，我是一名网络安全工程师。</p>
-        <br>
-        <p>为了未来的发展，我从 6 岁开始进入信息技术领域，并赢得了许多重要奖项，其中包括 <span class="highlight-text">Blackhat 大会第一名</span>。</p>
-        <br>
-        <p>你好，我是 Nicholas（网名：风弟者-蒽随小小幼风🐾），一名拥有多年实战经验的网络安全专家与嵌入式Linux工程师。</p>
-        <br>
-        <p>核心专长：基于 OpenWrt/iStoreOS 构建企业级安全网关、Docker 容器化部署、网络性能优化、智能出行技术研究（小鹏G6深度实践）。</p>
-        <br>
-        <p>我为企业和个人提供定制化的网络安全解决方案，同时活跃于开源社区，持续分享嵌入式系统与网络优化的实战经验。</p>
+        <div class="en-only">
+            <h3>Professional Background</h3>
+            <p>I am NICHOLAS. I have been working at Dignity for children for more than 7 years. Before I came to Dignity for children, I was a network security engineer.</p>
+            <br>
+            <p>In order to make a future development, I started to enter the field of Information Technology at the age of 6 and won many big prizes, including <span class="highlight-text">Blackhat competition first prize</span>.</p>
+            <br>
+            <p>Core expertise: Building enterprise-level security gateways based on OpenWrt/iStoreOS, Docker containerization deployment, network performance optimization, and smart mobility technology research (XPeng G6 in-depth practice).</p>
+            <br>
+            <p>I provide customized network security solutions for enterprises and individuals, while being active in the open-source community, continuously sharing practical experience in embedded systems and network optimization.</p>
+        </div>
+        <div class="cn-only">
+            <h3>专业背景</h3>
+            <p>我是 NICHOLAS。我在 Dignity for children 工作了 7 年多。在加入 Dignity for children 之前，我是一名网络安全工程师。</p>
+            <br>
+            <p>为了未来的发展，我从 6 岁开始进入信息技术领域，并赢得了许多重要奖项，其中包括 <span class="highlight-text">Blackhat 大会第一名</span>。</p>
+            <br>
+            <p>核心专长：基于 OpenWrt/iStoreOS 构建企业级安全网关、Docker 容器化部署、网络性能优化、智能出行技术研究（小鹏G6深度实践）。</p>
+            <br>
+            <p>我为企业和个人提供定制化的网络安全解决方案，同时活跃于开源社区，持续分享嵌入式系统与网络优化的实战经验。</p>
+        </div>
     </div>
 </section>
 
 <section class="section">
-    <h2 class="section-title">核心技能 / Core Skills</h2>
+    <h2 class="section-title cn-only">核心技能 / Core Skills</h2>
+    <h2 class="section-title en-only">Core Skills / 核心技能</h2>
     <div class="skills-container">
         <span class="skill-tag highlight">Blackhat 第一名 / Blackhat First Prize</span>
-        <span class="skill-tag">网络安全渗透测试 / Penetration Testing</span>
-        <span class="skill-tag">嵌入式Linux开发 / Embedded Linux Dev</span>
-        <span class="skill-tag">OpenWrt/iStoreOS部署 / OpenWrt Deployment</span>
-        <span class="skill-tag">Docker/K8s运维 / Docker/K8s Ops</span>
-        <span class="skill-tag">网络性能优化 / Network Optimization</span>
-        <span class="skill-tag">Python/Shell编程 / Python/Shell Scripting</span>
-        <span class="skill-tag">智能出行技术 / Smart Mobility Tech</span>
-        <span class="skill-tag">小鹏G6车机优化 / XPeng G6 Tuning</span>
-        <span class="skill-tag">企业级网关搭建 / Enterprise Gateway</span>
-        <span class="skill-tag">网络协议分析 / Protocol Analysis</span>
+        <span class="skill-tag cn-only">网络安全渗透测试 / Penetration Testing</span>
+        <span class="skill-tag en-only">Penetration Testing / 网络安全渗透测试</span>
+        <span class="skill-tag cn-only">嵌入式Linux开发 / Embedded Linux Dev</span>
+        <span class="skill-tag en-only">Embedded Linux Dev / 嵌入式Linux开发</span>
+        <span class="skill-tag cn-only">OpenWrt/iStoreOS部署 / OpenWrt Deployment</span>
+        <span class="skill-tag en-only">OpenWrt Deployment / OpenWrt/iStoreOS部署</span>
+        <span class="skill-tag cn-only">Docker/K8s运维 / Docker/K8s Ops</span>
+        <span class="skill-tag en-only">Docker/K8s Ops / Docker/K8s运维</span>
+        <span class="skill-tag cn-only">网络性能优化 / Network Optimization</span>
+        <span class="skill-tag en-only">Network Optimization / 网络性能优化</span>
+        <span class="skill-tag cn-only">Python/Shell编程 / Python/Shell Scripting</span>
+        <span class="skill-tag en-only">Python/Shell Scripting / Python/Shell编程</span>
+        <span class="skill-tag cn-only">智能出行技术 / Smart Mobility Tech</span>
+        <span class="skill-tag en-only">Smart Mobility Tech / 智能出行技术</span>
+        <span class="skill-tag cn-only">小鹏G6车机优化 / XPeng G6 Tuning</span>
+        <span class="skill-tag en-only">XPeng G6 Tuning / 小鹏G6车机优化</span>
+        <span class="skill-tag cn-only">企业级网关搭建 / Enterprise Gateway</span>
+        <span class="skill-tag en-only">Enterprise Gateway / 企业级网关搭建</span>
+        <span class="skill-tag cn-only">网络协议分析 / Protocol Analysis</span>
+        <span class="skill-tag en-only">Protocol Analysis / 网络协议分析</span>
     </div>
 </section>
 
 <section class="section">
-    <h2 class="section-title">工作经历与成就 / Work Experience & Achievements</h2>
-    <div class="card">
+    <h2 class="section-title cn-only">工作经历与成就 / Work Experience & Achievements</h2>
+    <h2 class="section-title en-only">Work Experience & Achievements / 工作经历与成就</h2>
+    <div class="card en-only">
         <h3>Professional Experience</h3>
         <p>✅ 7+ years of work experience at Dignity for children</p>
         <p>✅ Former Network Security Engineer</p>
         <p>✅ Started IT learning and practice at the age of 6</p>
     </div>
-    <div class="card">
+    <div class="card cn-only">
+        <h3>工作经历</h3>
+        <p>✅ 在 Dignity for children 拥有 7 年以上工作经验</p>
+        <p>✅ 前网络安全工程师</p>
+        <p>✅ 6 岁开始学习和实践信息技术</p>
+    </div>
+    <div class="card en-only">
         <h3>Awards & Honors</h3>
         <p>🏆 <span class="highlight-text">Blackhat Competition - First Prize</span></p>
         <p>🏆 Multiple top prizes in major IT/Network Security competitions</p>
     </div>
-    <div class="card">
-        <h3>企业级网络安全网关 / Enterprise Security Gateway</h3>
+    <div class="card cn-only">
+        <h3>获奖荣誉</h3>
+        <p>🏆 <span class="highlight-text">Blackhat 大会 - 第一名</span></p>
+        <p>🏆 多次在重大 IT/网络安全竞赛中获得顶级奖项</p>
+    </div>
+    <div class="card en-only">
+        <h3>Enterprise Security Gateway</h3>
+        <p>Customized enterprise-level security gateways based on OpenWrt, integrating intrusion detection, traffic control, and VPN services, providing stable network security solutions for 50+ enterprises, reducing network attack risks by 80%.</p>
+    </div>
+    <div class="card cn-only">
+        <h3>企业级网络安全网关</h3>
         <p>基于 OpenWrt 定制开发企业级安全网关，集成入侵检测、流量管控、VPN 服务，为50+企业提供稳定的网络安全解决方案，降低网络攻击风险80%。</p>
     </div>
-    <div class="card">
-        <h3>游戏网络延迟优化系统 / Gaming Latency Optimization</h3>
+    <div class="card en-only">
+        <h3>Gaming Latency Optimization</h3>
+        <p>Developed a Linux kernel-based network latency optimization tool for gaming/high-concurrency server scenarios, enabling intelligent route selection and packet priority scheduling, reducing average network latency by over 30ms.</p>
+    </div>
+    <div class="card cn-only">
+        <h3>游戏网络延迟优化系统</h3>
         <p>开发基于 Linux 内核的网络延迟优化工具，针对游戏/高并发服务器场景，实现路由智能选路、数据包优先级调度，平均降低网络延迟30ms+。</p>
     </div>
-    <div class="card">
-        <h3>小鹏G6智能出行研究 / XPeng G6 Smart Mobility</h3>
+    <div class="card en-only">
+        <h3>XPeng G6 Smart Mobility</h3>
+        <p>Deeply researched XPeng G6 in-vehicle systems and intelligent driving technology, published multiple technical analysis articles, optimized in-vehicle network connection stability, and enhanced intelligent driving experience.</p>
+    </div>
+    <div class="card cn-only">
+        <h3>小鹏G6智能出行研究</h3>
         <p>深度研究小鹏G6车机系统与智能驾驶技术，发布多篇技术分析文章，优化车机网络连接稳定性，提升智能驾驶体验。</p>
     </div>
 </section>
 
 <section class="section">
-    <h2 class="section-title">联系我 / Contact Me</h2>
+    <h2 class="section-title cn-only">联系我 / Contact Me</h2>
+    <h2 class="section-title en-only">Contact Me / 联系我</h2>
     <div class="contact-links">
         <a href="https://github.com/nichacker" target="_blank" class="contact-link">GitHub</a>
         <a href="https://nichacker.github.io/aboutnix/" target="_blank" class="contact-link">GitHub Pages</a>
@@ -251,265 +336,25 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 NICHOLAS | 风弟者-蒽随小小幼风🐾 | Blackhat First Prize Winner</p>
+    <p class="cn-only">&copy; 2026 NICHOLAS | 风弟者-蒽随小小幼风🐾 | Blackhat 第一名得主</p>
+    <p class="en-only">&copy; 2026 NICHOLAS | 风弟者-蒽随小小幼风🐾 | Blackhat First Prize Winner</p>
 </footer>
 </div>
-</body>
-</html><!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicholas | 风弟者-蒽随小小幼风🐾 | 网络安全专家 & 嵌入式Linux工程师</title>
-    <meta name="description" content="Nicholas (Blackhat Winner) with 7+ years at Dignity for children, ex-Network Security Engineer, IT since age 6, multiple first prizes.">
-    <meta name="keywords" content="Nicholas,风弟者,蒽随小小幼风,Blackhat,网络安全,嵌入式Linux,Dignity for children,first prize">
-    <link rel="canonical" href="https://aboutnix.vercel.app/">
-    <meta name="author" content="Nicholas 风弟者-蒽随小小幼风🐾">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Nicholas | Blackhat Winner | Network Security Expert">
-    <meta property="og:description" content="7+ years at Dignity for children, ex-Network Security Engineer, IT since age 6, first prize winner.">
-    <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://aboutnix.vercel.app/">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Nicholas",
-      "alternateName": "风弟者-蒽随小小幼风🐾",
-      "description": "Blackhat Winner | Network Security Expert with 7+ years at Dignity for children",
-      "jobTitle": "Network Security Engineer",
-      "url": "https://aboutnix.vercel.app/",
-      "sameAs": [
-        "https://github.com/nichacker",
-        "https://nichacker.github.io/aboutnix/",
-        "https://www.linkedin.com/in/%E5%AD%90%E6%BB%94-%E7%8E%8B-5196b8395"
-      ]
-    }
-    </script>
-    <style>
-        :root {
-            --primary: #165DFF;
-            --dark-bg: #0F172A;
-            --card-bg: #1E293B;
-            --text-primary: #F8FAFC;
-            --text-secondary: #94A3B8;
-            --border-color: #334155;
-            --highlight: #FFD700; /* Gold for prize highlights */
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        body {
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.8;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-        }
-        .header-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-        }
-        .alias {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-        .tagline {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        .highlight-text {
-            color: var(--highlight);
-            font-weight: 700;
-        }
-        .section {
-            margin-bottom: 3.5rem;
-        }
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-        .section-title::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 50%;
-            transform: translateY(-50%);
-            width: 4px; height: 1.5rem;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-color);
-        }
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        .skill-tag {
-            background: rgba(22,93,255,0.1);
-            color: var(--primary);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(22,93,255,0.2);
-        }
-        .skill-tag.highlight {
-            background: rgba(255,215,0,0.1);
-            color: var(--highlight);
-            border-color: var(--highlight);
-        }
-        .contact-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .contact-link {
-            padding: 0.8rem 1.5rem;
-            background: var(--card-bg);
-            color: var(--primary);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-        }
-        footer {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            margin-top: 2rem;
-        }
-        @media (max-width:768px) {
-            .header-content h1 { font-size:2rem; }
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-<header>
-    <img src="https://i.imgur.com/XM4fZ1y.png" alt="Nicholas 个人头像" class="avatar">
-    <div class="header-content">
-        <h1>NICHOLAS</h1>
-        <p class="alias">风弟者-蒽随小小幼风🐾 | <span class="highlight-text">Blackhat 第一名得主</span></p>
-        <p class="tagline">在 Dignity for children 工作 7 年以上 | 前网络安全工程师 | 6 岁进入信息技术领域</p>
-    </div>
-</header>
 
-<section class="section">
-    <h2 class="section-title">关于我 / About Me</h2>
-    <div class="card">
-        <h3>English</h3>
-        <p>I am NICHOLAS. I have been working at Dignity for children for more than 7 years. Before I came to Dignity for children, I was a network security engineer.</p>
-        <br>
-        <p>In order to make a future development, I started to enter the field of Information Technology at the age of 6 and won many big prizes, including <span class="highlight-text">Blackhat competition first prize</span>.</p>
-        <br>
-        <h3>中文</h3>
-        <p>我是 NICHOLAS。我在 Dignity for children 工作了 7 年多。在加入 Dignity for children 之前，我是一名网络安全工程师。</p>
-        <br>
-        <p>为了未来的发展，我从 6 岁开始进入信息技术领域，并赢得了许多重要奖项，其中包括 <span class="highlight-text">Blackhat 大会第一名</span>。</p>
-        <br>
-        <p>你好，我是 Nicholas（网名：风弟者-蒽随小小幼风🐾），一名拥有多年实战经验的网络安全专家与嵌入式Linux工程师。</p>
-        <br>
-        <p>核心专长：基于 OpenWrt/iStoreOS 构建企业级安全网关、Docker 容器化部署、网络性能优化、智能出行技术研究（小鹏G6深度实践）。</p>
-        <br>
-        <p>我为企业和个人提供定制化的网络安全解决方案，同时活跃于开源社区，持续分享嵌入式系统与网络优化的实战经验。</p>
-    </div>
-</section>
+<script>
+    const langBtn = document.getElementById('langBtn');
+    const body = document.body;
 
-<section class="section">
-    <h2 class="section-title">核心技能 / Core Skills</h2>
-    <div class="skills-container">
-        <span class="skill-tag highlight">Blackhat 第一名 / Blackhat First Prize</span>
-        <span class="skill-tag">网络安全渗透测试 / Penetration Testing</span>
-        <span class="skill-tag">嵌入式Linux开发 / Embedded Linux Dev</span>
-        <span class="skill-tag">OpenWrt/iStoreOS部署 / OpenWrt Deployment</span>
-        <span class="skill-tag">Docker/K8s运维 / Docker/K8s Ops</span>
-        <span class="skill-tag">网络性能优化 / Network Optimization</span>
-        <span class="skill-tag">Python/Shell编程 / Python/Shell Scripting</span>
-        <span class="skill-tag">智能出行技术 / Smart Mobility Tech</span>
-        <span class="skill-tag">小鹏G6车机优化 / XPeng G6 Tuning</span>
-        <span class="skill-tag">企业级网关搭建 / Enterprise Gateway</span>
-        <span class="skill-tag">网络协议分析 / Protocol Analysis</span>
-    </div>
-</section>
-
-<section class="section">
-    <h2 class="section-title">工作经历与成就 / Work Experience & Achievements</h2>
-    <div class="card">
-        <h3>Professional Experience</h3>
-        <p>✅ 7+ years of work experience at Dignity for children</p>
-        <p>✅ Former Network Security Engineer</p>
-        <p>✅ Started IT learning and practice at the age of 6</p>
-    </div>
-    <div class="card">
-        <h3>Awards & Honors</h3>
-        <p>🏆 <span class="highlight-text">Blackhat Competition - First Prize</span></p>
-        <p>🏆 Multiple top prizes in major IT/Network Security competitions</p>
-    </div>
-    <div class="card">
-        <h3>企业级网络安全网关 / Enterprise Security Gateway</h3>
-        <p>基于 OpenWrt 定制开发企业级安全网关，集成入侵检测、流量管控、VPN 服务，为50+企业提供稳定的网络安全解决方案，降低网络攻击风险80%。</p>
-    </div>
-    <div class="card">
-        <h3>游戏网络延迟优化系统 / Gaming Latency Optimization</h3>
-        <p>开发基于 Linux 内核的网络延迟优化工具，针对游戏/高并发服务器场景，实现路由智能选路、数据包优先级调度，平均降低网络延迟30ms+。</p>
-    </div>
-    <div class="card">
-        <h3>小鹏G6智能出行研究 / XPeng G6 Smart Mobility</h3>
-        <p>深度研究小鹏G6车机系统与智能驾驶技术，发布多篇技术分析文章，优化车机网络连接稳定性，提升智能驾驶体验。</p>
-    </div>
-</section>
-
-<section class="section">
-    <h2 class="section-title">联系我 / Contact Me</h2>
-    <div class="contact-links">
-        <a href="https://github.com/nichacker" target="_blank" class="contact-link">GitHub</a>
-        <a href="https://nichacker.github.io/aboutnix/" target="_blank" class="contact-link">GitHub Pages</a>
-        <a href="https://linkedin.com/in/%E5%AD%90%E6%BB%94-%E7%8E%8B-5196b8395" target="_blank" class="contact-link">LinkedIn</a>
-        <a href="mailto:yitiancaiwei@gmail.com" class="contact-link">Email</a>
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2026 NICHOLAS | 风弟者-蒽随小小幼风🐾 | Blackhat First Prize Winner</p>
-</footer>
-</div>
+    // 逻辑保持：点击按钮切换语言，默认中文→点击变英文（按钮显示中文），再点变回中文（按钮显示English）
+    langBtn.addEventListener('click', () => {
+        if (body.lang === 'zh-CN') {
+            body.lang = 'en';
+            langBtn.textContent = '中文';
+        } else {
+            body.lang = 'zh-CN';
+            langBtn.textContent = 'English';
+        }
+    });
+</script>
 </body>
 </html>
